@@ -1,42 +1,50 @@
-# Gerenciador de Tarefas API
+# Gerenciador de Tarefas API 
 
-Uma API REST de tarefas feita com ASP.NET Core, Entity Framework Core e SQLite. O projeto foi organizado para servir como primeiro projeto de portfólio: a entidade representa os dados, os DTOs definem o que entra e sai da API, o contexto conversa com o banco e o controller contém as operações HTTP.
+Uma API RESTful desenvolvida em **ASP.NET Core**, utilizando **Entity Framework Core** e **SQLite**. 
 
-## Requisitos
+Criei este projeto para consolidar meus conhecimentos em desenvolvimento backend e estruturar uma aplicação limpa e escalável. A arquitetura foi pensada para separar bem as responsabilidades: as entidades cuidam dos dados, os DTOs gerenciam os contratos de entrada e saída, o contexto faz a ponte com o banco e os controllers coordenam os fluxos HTTP.
 
-- .NET 10 SDK (LTS). Confira a instalação com `dotnet --version`.
-- Git, caso queira publicar o projeto no GitHub.
+---
 
-O .NET 10 está em suporte LTS ativo. Consulte a [política oficial de suporte do .NET](https://dotnet.microsoft.com/pt-br/platform/support/policy).
+## Tecnologias e Requisitos
 
-## Executar localmente
+- **.NET 10 SDK (LTS)** — Você pode verificar se já tem instalado executando `dotnet --version` no terminal. *(O .NET 10 está em suporte LTS ativo; veja a [política oficial de suporte](https://dotnet.microsoft.com/pt-br/platform/support/policy)).*
+- **Git** — Caso queira versionar e publicar o projeto.
 
-No terminal, entre na pasta que contém `GerenciadorTarefas.csproj` e execute:
+---
+
+## Como rodar o projeto localmente
+
+1. IMPORTANTE!!! Abra o terminal na pasta raiz do projeto (onde está o arquivo `GerenciadorTarefas.csproj`).
+2. Execute os comandos abaixo:
 
 ```bash
 dotnet restore
 dotnet run
 ```
 
-Na primeira inicialização, a aplicação cria o arquivo `gerenciador-tarefas.db` na pasta de execução. Esse arquivo contém seus dados e não é enviado ao Git, pois está no `.gitignore`.
+Na primeira inicialização, a aplicação criará automaticamente o arquivo `gerenciador-tarefas.db` com o banco SQLite local. Fique tranquilo: ele já está configurado no `.gitignore`, então não será enviado para o seu repositório.
 
-O terminal informa os endereços locais (HTTP e HTTPS). Abra o endereço HTTPS seguido de `/swagger`, por exemplo `https://localhost:7000/swagger`, usando a porta que apareceu no seu terminal. A tela do Swagger permite testar cada operação pelo navegador. Se o navegador mostrar um aviso de certificado local, execute `dotnet dev-certs https --trust` uma vez e confirme a solicitação do Windows.
+O terminal exibirá as URLs locais (HTTP e HTTPS). Abra a versão **HTTPS** seguida de `/swagger` no seu navegador (por exemplo: `https://localhost:7000/swagger`) para acessar a interface interativa e testar todas as rotas facilmente.
 
-O Swagger fica habilitado no ambiente de desenvolvimento. `dotnet run` usa esse ambiente por padrão.
+> **Dica para o certificado:** Se o navegador exibir um aviso de segurança sobre o certificado SSL local, basta rodar `dotnet dev-certs https --trust` uma única vez no terminal para resolver.
 
-## Endpoints
+---
 
-| Método | Rota | O que faz | Resposta esperada |
-|---|---|---|---|
-| GET | `/api/tarefas` | Lista as tarefas | `200 OK` |
-| GET | `/api/tarefas/{id}` | Busca uma tarefa pelo ID | `200 OK` ou `404 Not Found` |
-| POST | `/api/tarefas` | Cria uma tarefa | `201 Created` |
-| PUT | `/api/tarefas/{id}` | Atualiza todos os campos editáveis | `204 No Content` ou `404 Not Found` |
-| DELETE | `/api/tarefas/{id}` | Exclui uma tarefa | `204 No Content` ou `404 Not Found` |
+##  Endpoints da API
 
-### Exemplo de criação
+| Método | Rota | Descrição | Resposta Padrão |
+| :--- | :--- | :--- | :--- |
+| **GET** | `/api/tarefas` | Lista todas as tarefas cadastradas | `200 OK` |
+| **GET** | `/api/tarefas/{id}` | Busca uma tarefa específica pelo ID | `200 OK` ou `404 Not Found` |
+| **POST** | `/api/tarefas` | Cria uma nova tarefa | `201 Created` |
+| **PUT** | `/api/tarefas/{id}` | Atualiza os dados de uma tarefa | `204 No Content` ou `404 Not Found` |
+| **DELETE** | `/api/tarefas/{id}` | Remove uma tarefa do sistema | `204 No Content` ou `404 Not Found` |
 
-Envie um `POST` para `/api/tarefas` com o corpo JSON:
+###  Exemplos de Uso
+
+#### Criando uma tarefa (`POST`)
+Envie uma requisição para `/api/tarefas` com o corpo em JSON:
 
 ```json
 {
@@ -45,8 +53,7 @@ Envie um `POST` para `/api/tarefas` com o corpo JSON:
 }
 ```
 
-Resposta de exemplo (`201 Created`):
-
+Resposta esperada (`201 Created`):
 ```json
 {
   "id": 1,
@@ -57,9 +64,8 @@ Resposta de exemplo (`201 Created`):
 }
 ```
 
-### Exemplo de atualização
-
-Envie um `PUT` para `/api/tarefas/1` com todos os campos editáveis:
+#### Atualizando uma tarefa (`PUT`)
+Envie uma requisição para `/api/tarefas/1`:
 
 ```json
 {
@@ -68,31 +74,3 @@ Envie um `PUT` para `/api/tarefas/1` com todos os campos editáveis:
   "concluida": true
 }
 ```
-
-As validações exigem título entre 3 e 120 caracteres. A descrição é opcional e aceita até 500 caracteres. Quando uma requisição não passa pela validação, a API responde `400 Bad Request` com os detalhes dos campos inválidos.
-
-## Como o projeto está organizado
-
-- `Models/Tarefa.cs`: dados persistidos de uma tarefa.
-- `DTOs/`: formatos de entrada e resposta; evita expor a entidade diretamente nos contratos HTTP.
-- `Data/TarefasDbContext.cs`: configuração e acesso às tabelas pelo EF Core.
-- `Controllers/TarefasController.cs`: rotas e operações CRUD.
-- `Program.cs`: registro dos serviços, SQLite, Swagger e inicialização do banco.
-- `appsettings.json`: cadeia de conexão do SQLite.
-
-O banco é criado com `EnsureCreated()` para simplificar o primeiro contato. Em projetos que evoluem em produção, o caminho recomendado é usar migrations do EF Core para versionar mudanças no esquema.
-
-## Publicar no GitHub
-
-Crie um repositório vazio no GitHub. Depois, na pasta deste projeto:
-
-```bash
-git init
-git add .
-git commit -m "Criar API de gerenciamento de tarefas"
-git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-git push -u origin main
-```
-
-Substitua `SEU-USUARIO` e `SEU-REPOSITORIO` pelos valores do repositório criado. O banco local, os arquivos de compilação e as configurações específicas da máquina são ignorados pelo Git.
