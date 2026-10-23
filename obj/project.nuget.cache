@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "dgSpecHash": "7n4ynWRIbx4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Adriel\\Documents\\Codex\\2026-10-22\\continuing-from-criar-api-com-c\\outputs\\GerenciadorTarefas\\GerenciadorTarefas.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Adriel\\.nuget\\packages\\microsoft.data.sqlite.core\\10.0.13\\microsoft.data.sqlite.core.10.0.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.13\\microsoft.entityframeworkcore.10.0.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.13\\microsoft.entityframeworkcore.abstractions.10.0.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.13\\microsoft.entityframeworkcore.analyzers.10.0.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.13\\microsoft.entityframeworkcore.relational.10.0.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\10.0.13\\microsoft.entityframeworkcore.sqlite.10.0.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\10.0.13\\microsoft.entityframeworkcore.sqlite.core.10.0.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\microsoft.extensions.apidescription.server\\10.0.0\\microsoft.extensions.apidescription.server.10.0.0.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\microsoft.extensions.dependencymodel\\10.0.13\\microsoft.extensions.dependencymodel.10.0.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\microsoft.openapi\\2.4.1\\microsoft.openapi.2.4.1.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.13\\sqlitepclraw.bundle_e_sqlite3.2.1.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\sqlitepclraw.core\\2.1.13\\sqlitepclraw.core.2.1.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.13\\sqlitepclraw.lib.e_sqlite3.2.1.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.13\\sqlitepclraw.provider.e_sqlite3.2.1.13.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\swashbuckle.aspnetcore\\10.1.4\\swashbuckle.aspnetcore.10.1.4.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\10.1.4\\swashbuckle.aspnetcore.swagger.10.1.4.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\10.1.4\\swashbuckle.aspnetcore.swaggergen.10.1.4.nupkg.sha512",
+    "C:\\Users\\Adriel\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\10.1.4\\swashbuckle.aspnetcore.swaggerui.10.1.4.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Ocorreu um erro ao obter os dados de vulnerabilidade do pacote: Não é possível carregar o índice de serviço para a origem https://api.nuget.org/v3/index.json.",
+      "projectPath": "C:\\Users\\Adriel\\Documents\\Codex\\2026-10-22\\continuing-from-criar-api-com-c\\outputs\\GerenciadorTarefas\\GerenciadorTarefas.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Adriel\\Documents\\Codex\\2026-10-22\\continuing-from-criar-api-com-c\\outputs\\GerenciadorTarefas\\GerenciadorTarefas.csproj",
+      "targetGraphs": []
+    }
+  ]
+}
